@@ -268,6 +268,56 @@ namespace A3_2024._1
                     throw ex;
                 }
             }
+        public static void AtualizarAgen(Agendamentos agendamentos,string novotutor,string novopet,string novovet)
+            {
+                SQLiteDataAdapter da = null;
+                DataTable dt = new DataTable();
+                try
+                {
+                    var vcon = ConexaoBanco();
+                    var cmd = vcon.CreateCommand();
+
+                    cmd.CommandText = "UPDATE tb_agen SET  hora='" + agendamentos.hora + "',data='" + agendamentos.data + "',motivo='" + agendamentos.motivo + "' WHERE agen_id =" + agendamentos.id;
+                    da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                    da.Fill(dt);
+                    cmd.ExecuteNonQuery();
+                   
+                if (novopet != "" && novotutor != ""&& novovet != "")
+                    {
+                            // Se tanto novopet quanto novotutor estiverem preenchidos, execute esta consulta SQL
+                            cmd.CommandText = "UPDATE tb_agen SET  hora='" + agendamentos.hora + "',data='" + agendamentos.data + "',tutor_di='" + agendamentos.tutor_id + "',vet_id='" + agendamentos.vet_id + "',motivo='" + agendamentos.motivo + "',pet_id='" + agendamentos.pet_id + "' WHERE tutores_id =" + agendamentos.id;
+                    }
+                else if (novopet != "")
+                {
+                    // Se apenas novopet estiver preenchido, execute esta consulta SQL
+                    cmd.CommandText ="UPDATE tb_agen SET  pet_id='" + novotutor + "' WHERE agen_id =" + agendamentos.id;
+                }
+                else if (novotutor != "")
+                {
+                    // Se apenas novotutor estiver preenchido, execute esta consulta SQL
+                    cmd.CommandText = "UPDATE tb_agen SET  tutor_id='" + novotutor + "' WHERE agen_id =" + agendamentos.id;
+                }
+                else if (novovet != "")
+                {
+                    // Se apenas novotutor estiver preenchido, execute esta consulta SQL
+                    cmd.CommandText = "UPDATE tb_agen SET  vet_id='" + novovet + "' WHERE agen_id =" + agendamentos.id;
+                }
+                else
+                {
+                    // Se ambos novopet e novotutor estiverem vazios, execute esta consulta SQL
+                  
+                }
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                    da.Fill(dt);
+                    cmd.ExecuteNonQuery();
+                    vcon.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
         public static void DeletarTutor(string id)
             {
                 SQLiteDataAdapter da = null;
