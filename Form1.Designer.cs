@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lb_us = new System.Windows.Forms.Label();
             this.lb_nomeUsuarios = new System.Windows.Forms.Label();
+            this.lb_us = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,16 +61,6 @@
             this.panel1.Size = new System.Drawing.Size(691, 43);
             this.panel1.TabIndex = 0;
             // 
-            // lb_us
-            // 
-            this.lb_us.AutoSize = true;
-            this.lb_us.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_us.Location = new System.Drawing.Point(12, 12);
-            this.lb_us.Name = "lb_us";
-            this.lb_us.Size = new System.Drawing.Size(95, 25);
-            this.lb_us.TabIndex = 0;
-            this.lb_us.Text = "Usuarios:";
-            // 
             // lb_nomeUsuarios
             // 
             this.lb_nomeUsuarios.AutoSize = true;
@@ -80,6 +70,16 @@
             this.lb_nomeUsuarios.Size = new System.Drawing.Size(33, 25);
             this.lb_nomeUsuarios.TabIndex = 1;
             this.lb_nomeUsuarios.Text = "---";
+            // 
+            // lb_us
+            // 
+            this.lb_us.AutoSize = true;
+            this.lb_us.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_us.Location = new System.Drawing.Point(12, 12);
+            this.lb_us.Name = "lb_us";
+            this.lb_us.Size = new System.Drawing.Size(95, 25);
+            this.lb_us.TabIndex = 0;
+            this.lb_us.Text = "Usuarios:";
             // 
             // menuStrip1
             // 
@@ -109,14 +109,14 @@
             // logonToolStripMenuItem
             // 
             this.logonToolStripMenuItem.Name = "logonToolStripMenuItem";
-            this.logonToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.logonToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.logonToolStripMenuItem.Text = "Logon";
             this.logonToolStripMenuItem.Click += new System.EventHandler(this.logonToolStripMenuItem_Click);
             // 
             // loToolStripMenuItem
             // 
             this.loToolStripMenuItem.Name = "loToolStripMenuItem";
-            this.loToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.loToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.loToolStripMenuItem.Text = "Logoff";
             this.loToolStripMenuItem.Click += new System.EventHandler(this.loToolStripMenuItem_Click);
             // 
@@ -131,7 +131,7 @@
             // bancoDeDadosToolStripMenuItem
             // 
             this.bancoDeDadosToolStripMenuItem.Name = "bancoDeDadosToolStripMenuItem";
-            this.bancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
             this.bancoDeDadosToolStripMenuItem.Text = "Banco de dados";
             this.bancoDeDadosToolStripMenuItem.Click += new System.EventHandler(this.bancoDeDadosToolStripMenuItem_Click);
             // 
@@ -146,7 +146,7 @@
             // novosTutoresToolStripMenuItem
             // 
             this.novosTutoresToolStripMenuItem.Name = "novosTutoresToolStripMenuItem";
-            this.novosTutoresToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.novosTutoresToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.novosTutoresToolStripMenuItem.Text = "Novos Tutores";
             this.novosTutoresToolStripMenuItem.Click += new System.EventHandler(this.novosTutoresToolStripMenuItem_Click);
             // 
@@ -161,7 +161,7 @@
             // novosPetsToolStripMenuItem
             // 
             this.novosPetsToolStripMenuItem.Name = "novosPetsToolStripMenuItem";
-            this.novosPetsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.novosPetsToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
             this.novosPetsToolStripMenuItem.Text = "Novos Pets";
             this.novosPetsToolStripMenuItem.Click += new System.EventHandler(this.novosPetsToolStripMenuItem_Click);
             // 
@@ -176,7 +176,7 @@
             // gerenciamentoToolStripMenuItem
             // 
             this.gerenciamentoToolStripMenuItem.Name = "gerenciamentoToolStripMenuItem";
-            this.gerenciamentoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gerenciamentoToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.gerenciamentoToolStripMenuItem.Text = "Gerenciamento";
             this.gerenciamentoToolStripMenuItem.Click += new System.EventHandler(this.gerenciamentoToolStripMenuItem_Click);
             // 
@@ -201,6 +201,7 @@
             this.agendamentosEConsultasToolStripMenuItem.Name = "agendamentosEConsultasToolStripMenuItem";
             this.agendamentosEConsultasToolStripMenuItem.Size = new System.Drawing.Size(272, 26);
             this.agendamentosEConsultasToolStripMenuItem.Text = "Agendamentos e Consultas";
+            this.agendamentosEConsultasToolStripMenuItem.Click += new System.EventHandler(this.agendamentosEConsultasToolStripMenuItem_Click);
             // 
             // Form1
             // 

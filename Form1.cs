@@ -98,5 +98,18 @@ namespace A3_2024._1
                 MessageBox.Show("presisa esta logado");
             }
         }
+
+        private void agendamentosEConsultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Globais.logado)
+            {
+                F_GerenciamentoAgendamentos f_GerenciamentoAgendamentos = new F_GerenciamentoAgendamentos();
+                f_GerenciamentoAgendamentos.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("presisa esta logado");
+            }
+        }
     }
 }
