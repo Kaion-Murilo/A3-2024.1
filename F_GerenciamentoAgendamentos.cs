@@ -91,5 +91,27 @@ namespace A3_2024._1
 
             Banco.AtualizarAgen(agendamentos, novopet, novotutor, novovet);
         }
+
+        private void btn_novoTutor_Click(object sender, EventArgs e)
+        {
+ 
+                F_Agendamento f_Agendamento = new F_Agendamento();
+                f_Agendamento.ShowDialog();
+        }
+
+        private void btn_fechar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btn_excluirTutor_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Confirmar Exclusao? ", "Excluir?", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                Banco.DeletarAgen(tb_idAgen.Text);
+                dgv_tutores.Rows.Remove(dgv_tutores.CurrentRow);
+            }
+        }
     }
 }

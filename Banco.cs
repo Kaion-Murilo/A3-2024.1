@@ -390,6 +390,46 @@ namespace A3_2024._1
                 throw ex;
             }
         }
+        public static void DeletarPet(string id)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+
+                cmd.CommandText = "DELETE FROM tb_pets  WHERE pet_id =" + id;
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQuery();
+                vcon.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void DeletarAgen(string id)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+
+                cmd.CommandText = "DELETE FROM tb_agen  WHERE id_agen =" + id;
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQuery();
+                vcon.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         /// Fim Fucoes do form F_GestaoUsuarios
         ///////////////////////////Funcao de form Novo Tutor
         public static void Novatutor(Usuarios u)
