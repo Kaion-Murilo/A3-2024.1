@@ -173,6 +173,31 @@ namespace A3_2024._1
                 throw ex;
             }
         }
+        public static DataTable obterConIDNome(string id)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+
+                cmd.CommandText = "SELECT  * FROM tb_con WHERE vet_id = " + id;
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                Console.WriteLine("----------------------");
+                Console.WriteLine(cmd.CommandText);
+                Console.WriteLine(id);
+                Console.WriteLine("----------------------");
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public static DataTable obterDadosTutores(string id)
         {
             SQLiteDataAdapter da = null;
@@ -253,10 +278,7 @@ namespace A3_2024._1
 
 
                 cmd.CommandText = "SELECT * FROM tb_agen WHERE vet_id = " + id;
-                Console.WriteLine("----------------------");
-                Console.WriteLine(cmd.CommandText);
-                Console.WriteLine(id);
-                Console.WriteLine("----------------------");
+
 
                 da = new SQLiteDataAdapter(cmd.CommandText, vcon);
                 da.Fill(dt);
@@ -370,6 +392,31 @@ namespace A3_2024._1
                 throw ex;
             }
         }
+        public static void AtualizarCon(Consulta consulta)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+
+
+                cmd.CommandText = "UPDATE tb_con SET  problema='" + consulta.prblema + "',solucao='" + consulta.solucao + "' WHERE con_id =" + consulta.con_id;
+
+                Console.WriteLine("----------------------");
+                Console.WriteLine(cmd.CommandText);
+                Console.WriteLine("----------------------");
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+
+                da.Fill(dt);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public static void DeletarTutor(string id)
         {
             SQLiteDataAdapter da = null;
@@ -430,6 +477,26 @@ namespace A3_2024._1
                 throw ex;
             }
         }
+        public static void DeletarCon(string id)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+
+                cmd.CommandText = "DELETE FROM tb_con  WHERE con_id =" + id;
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQuery();
+                vcon.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         /// Fim Fucoes do form F_GestaoUsuarios
         ///////////////////////////Funcao de form Novo Tutor
         public static void Novatutor(Usuarios u)
@@ -473,6 +540,7 @@ namespace A3_2024._1
                 cmd.Parameters.AddWithValue("@raca", pet.raca);
                 cmd.Parameters.AddWithValue("@idade", pet.idade);
                 cmd.Parameters.AddWithValue("@tutor_id", pet.tutor_id);
+                cmd.ExecuteNonQuery();
                 MessageBox.Show("Novo Pet inserido");
                 vcon.Close();
             }
@@ -508,7 +576,40 @@ namespace A3_2024._1
 
         }
         ////////Fim das Funcoes do Form Nova Consultas  
-        ///Rotinas Gerais
+        ///Rotinas Gerais <summary>
+        /// Rotinas Gerais
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        public static void Novocon(Consulta consulta)
+        {
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                ////cada agendamento so pode ter uma consulta(Pendencia)
+                cmd.CommandText = "INSERT INTO tb_con (pet_id,tutores_id,vet_id,agen_id,problema,solucao) VALUES (@pet_id,@tutores_id,@vet_id,@agen_id,@problema,@solucao)";
+                cmd.Parameters.AddWithValue("@pet_id",consulta.pet_id);
+                cmd.Parameters.AddWithValue("@tutores_id", consulta.tutores_id);
+                cmd.Parameters.AddWithValue("@vet_id", consulta.vet_id);
+                cmd.Parameters.AddWithValue("@problema", consulta.prblema);
+                cmd.Parameters.AddWithValue("@solucao", consulta.solucao);
+                cmd.Parameters.AddWithValue("@agen_id", consulta.agen_id);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("----------------------");
+                Console.WriteLine(cmd.CommandText);
+
+                Console.WriteLine("----------------------");
+                MessageBox.Show("Novo Consulta inserido");
+                vcon.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao gravar o novo Consulta");
+                throw ex;
+            }
+
+        }
         public static bool existenome(Usuarios u)
         {
             bool res;
@@ -524,6 +625,7 @@ namespace A3_2024._1
             else { res = false; }
             return res;
         }
+
 
     }
 }

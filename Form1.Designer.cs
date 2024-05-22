@@ -46,6 +46,8 @@
             this.gerencimentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tutoresEPetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendamentosEConsultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novaConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerenciamentoDeConsultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -168,7 +170,8 @@
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gerenciamentoToolStripMenuItem});
+            this.gerenciamentoToolStripMenuItem,
+            this.novaConsultaToolStripMenuItem});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
             this.consultasToolStripMenuItem.Text = "Consultas e Agendamentos";
@@ -176,7 +179,7 @@
             // gerenciamentoToolStripMenuItem
             // 
             this.gerenciamentoToolStripMenuItem.Name = "gerenciamentoToolStripMenuItem";
-            this.gerenciamentoToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.gerenciamentoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.gerenciamentoToolStripMenuItem.Text = "Gerenciamento";
             this.gerenciamentoToolStripMenuItem.Click += new System.EventHandler(this.gerenciamentoToolStripMenuItem_Click);
             // 
@@ -184,7 +187,8 @@
             // 
             this.gerencimentoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tutoresEPetsToolStripMenuItem,
-            this.agendamentosEConsultasToolStripMenuItem});
+            this.agendamentosEConsultasToolStripMenuItem,
+            this.gerenciamentoDeConsultasToolStripMenuItem});
             this.gerencimentoToolStripMenuItem.Name = "gerencimentoToolStripMenuItem";
             this.gerencimentoToolStripMenuItem.Size = new System.Drawing.Size(116, 24);
             this.gerencimentoToolStripMenuItem.Text = "Gerencimento";
@@ -202,6 +206,20 @@
             this.agendamentosEConsultasToolStripMenuItem.Size = new System.Drawing.Size(272, 26);
             this.agendamentosEConsultasToolStripMenuItem.Text = "Agendamentos e Consultas";
             this.agendamentosEConsultasToolStripMenuItem.Click += new System.EventHandler(this.agendamentosEConsultasToolStripMenuItem_Click);
+            // 
+            // novaConsultaToolStripMenuItem
+            // 
+            this.novaConsultaToolStripMenuItem.Name = "novaConsultaToolStripMenuItem";
+            this.novaConsultaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.novaConsultaToolStripMenuItem.Text = "Nova Consulta";
+            this.novaConsultaToolStripMenuItem.Click += new System.EventHandler(this.novaConsultaToolStripMenuItem_Click);
+            // 
+            // gerenciamentoDeConsultasToolStripMenuItem
+            // 
+            this.gerenciamentoDeConsultasToolStripMenuItem.Name = "gerenciamentoDeConsultasToolStripMenuItem";
+            this.gerenciamentoDeConsultasToolStripMenuItem.Size = new System.Drawing.Size(281, 26);
+            this.gerenciamentoDeConsultasToolStripMenuItem.Text = "Gerenciamento de Consultas";
+            this.gerenciamentoDeConsultasToolStripMenuItem.Click += new System.EventHandler(this.gerenciamentoDeConsultasToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -243,6 +261,8 @@
         private System.Windows.Forms.ToolStripMenuItem gerencimentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tutoresEPetsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agendamentosEConsultasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem novaConsultaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gerenciamentoDeConsultasToolStripMenuItem;
     }
 }
 

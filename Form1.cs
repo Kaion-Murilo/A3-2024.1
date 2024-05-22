@@ -111,5 +111,31 @@ namespace A3_2024._1
                 MessageBox.Show("presisa esta logado");
             }
         }
+
+        private void novaConsultaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Globais.logado)
+            {
+               F_consulta f_Consulta = new F_consulta();
+                f_Consulta.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("presisa esta logado");
+            }
+        }
+
+        private void gerenciamentoDeConsultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Globais.logado)
+            {
+                F_gerenciamentoconsultas f_Gerenciamentoconsultas = new F_gerenciamentoconsultas();
+                f_Gerenciamentoconsultas.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("presisa esta logado");
+            }
+        }
     }
 }

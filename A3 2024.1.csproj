@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Agendamentos.cs" />
     <Compile Include="Banco.cs" />
+    <Compile Include="Consulta.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,11 +80,23 @@
     <Compile Include="F_Agendamento.Designer.cs">
       <DependentUpon>F_Agendamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_consulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_consulta.Designer.cs">
+      <DependentUpon>F_consulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_GerenciamentoAgendamentos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F_GerenciamentoAgendamentos.Designer.cs">
       <DependentUpon>F_GerenciamentoAgendamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_gerenciamentoconsultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_gerenciamentoconsultas.Designer.cs">
+      <DependentUpon>F_gerenciamentoconsultas.cs</DependentUpon>
     </Compile>
     <Compile Include="F_GerenciamentoTutoresPets.cs">
       <SubType>Form</SubType>
@@ -120,8 +133,14 @@
     <EmbeddedResource Include="F_Agendamento.resx">
       <DependentUpon>F_Agendamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_consulta.resx">
+      <DependentUpon>F_consulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_GerenciamentoAgendamentos.resx">
       <DependentUpon>F_GerenciamentoAgendamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_gerenciamentoconsultas.resx">
+      <DependentUpon>F_gerenciamentoconsultas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_GerenciamentoTutoresPets.resx">
       <DependentUpon>F_GerenciamentoTutoresPets.cs</DependentUpon>
