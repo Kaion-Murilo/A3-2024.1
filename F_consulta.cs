@@ -48,13 +48,16 @@ namespace A3_2024._1
             {
                 DataTable dt = new DataTable();
                 string vid = dgv.SelectedRows[0].Cells[0].Value.ToString();
-                dt = Banco.obterAgenIDNome(tb_idVet.Text);
-                tb_idAgen.Text = dt.Rows[0].Field<Int64>("id_agen").ToString();
-                mtb_data.Text = dt.Rows[0].Field<string>("data").ToString();
-                mtb_horas.Text = dt.Rows[0].Field<string>("horas").ToString();
-                tb_motivo.Text = dt.Rows[0].Field<string>("motivo").ToString();
-                tb_petid.Text = dt.Rows[0].Field<Int64>("pet_id").ToString();
-                tb_tutorid.Text = dt.Rows[0].Field<Int64>("tutor_id").ToString();
+                dt = Banco.obterDadosAgen(vid);
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    tb_idAgen.Text = dt.Rows[0].Field<Int64>("id_agen").ToString();
+                    mtb_data.Text = dt.Rows[0].Field<string>("data").ToString();
+                    mtb_horas.Text = dt.Rows[0].Field<string>("horas").ToString();
+                    tb_motivo.Text = dt.Rows[0].Field<string>("motivo").ToString();
+                    tb_petid.Text = dt.Rows[0].Field<Int64>("pet_id").ToString();
+                    tb_tutorid.Text = dt.Rows[0].Field<Int64>("tutor_id").ToString();
+                }
             }
         }
 
