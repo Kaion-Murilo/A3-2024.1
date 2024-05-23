@@ -14,6 +14,58 @@ using System.Drawing;
 
 namespace A3_2024._1
 {
+    using System;
+    using System.Data.SQLite;
+
+    public sealed class DatabaseConnection
+    {
+        // Instância única da classe
+        private static DatabaseConnection instanciaUnica = null;
+        private static readonly object lockObject = new object();
+
+        // Variável de conexão
+        private static SQLiteConnection conexao;
+
+        // Construtor privado para evitar instanciamento
+        private DatabaseConnection()
+        {
+            // Inicializa a conexão utilizando os valores fornecidos
+            conexao = new SQLiteConnection("Data Source=" + Globais.caminhoBanco + Globais.nomeBanco);
+            conexao.Open();
+        }
+
+        // Método público estático para obter a instância única da classe
+        public static DatabaseConnection GetInstance()
+        {
+            if (instanciaUnica == null)
+            {
+                lock (lockObject)
+                {
+                    if (instanciaUnica == null)
+                    {
+                        instanciaUnica = new DatabaseConnection();
+                    }
+                }
+            }
+            return instanciaUnica;
+        }
+
+        // Método para obter a conexão
+        public SQLiteConnection GetConnection()
+        {
+            return conexao;
+        }
+
+        // Método para fechar a conexão
+        public void CloseConnection()
+        {
+            if (conexao != null && conexao.State != System.Data.ConnectionState.Closed)
+            {
+                conexao.Close();
+            }
+        }
+    }
+
     internal class Banco
     {
         private static SQLiteConnection conexao;
